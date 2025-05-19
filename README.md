@@ -1,57 +1,71 @@
-Crime Analysis
-==============================
+# Crime Analysis in Montgomery County (2020–2024)
 
-Crime pattern analysis in Montgomery County using Python
+This project investigates patterns in reported crimes across Montgomery County, Maryland using publicly available data from dataMontgomery. The analysis explores seasonal, spatial, and temporal variations in crime with the goal of uncovering actionable insights for public safety planning and community awareness.
 
-Project Organization
-------------
+## Research Questions
 
-    ├── LICENSE
-    ├── Makefile           <- Makefile with commands like `make data` or `make train`
-    ├── README.md          <- The top-level README for developers using this project.
-    ├── data
-    │   ├── external       <- Data from third party sources.
-    │   ├── interim        <- Intermediate data that has been transformed.
-    │   ├── processed      <- The final, canonical data sets for modeling.
-    │   └── raw            <- The original, immutable data dump.
-    │
-    ├── docs               <- A default Sphinx project; see sphinx-doc.org for details
-    │
-    ├── models             <- Trained and serialized models, model predictions, or model summaries
-    │
-    ├── notebooks          <- Jupyter notebooks. Naming convention is a number (for ordering),
-    │                         the creator's initials, and a short `-` delimited description, e.g.
-    │                         `1.0-jqp-initial-data-exploration`.
-    │
-    ├── references         <- Data dictionaries, manuals, and all other explanatory materials.
-    │
-    ├── reports            <- Generated analysis as HTML, PDF, LaTeX, etc.
-    │   └── figures        <- Generated graphics and figures to be used in reporting
-    │
-    ├── requirements.txt   <- The requirements file for reproducing the analysis environment, e.g.
-    │                         generated with `pip freeze > requirements.txt`
-    │
-    ├── setup.py           <- makes project pip installable (pip install -e .) so src can be imported
-    ├── src                <- Source code for use in this project.
-    │   ├── __init__.py    <- Makes src a Python module
-    │   │
-    │   ├── data           <- Scripts to download or generate data
-    │   │   └── make_dataset.py
-    │   │
-    │   ├── features       <- Scripts to turn raw data into features for modeling
-    │   │   └── build_features.py
-    │   │
-    │   ├── models         <- Scripts to train models and then use trained models to make
-    │   │   │                 predictions
-    │   │   ├── predict_model.py
-    │   │   └── train_model.py
-    │   │
-    │   └── visualization  <- Scripts to create exploratory and results oriented visualizations
-    │       └── visualize.py
-    │
-    └── tox.ini            <- tox file with settings for running tox; see tox.readthedocs.io
+1. Do crime rates vary by season and crime type?
+2. Are violent crimes more geographically concentrated than non-violent crimes?
+3. Do crime levels differ between weekends and weekdays?
 
+## Project Structure
 
---------
+This project follows the Cookiecutter Data Science structure:
+
+Crime_Analysis/
+├── data/              
+│   ├── raw/             <- Original Excel dataset
+│   ├── interim/         <- Cleaned datasets (optional)
+│   └── processed/       <- Final datasets (optional)
+├── docs/                <- Optional documentation
+├── models/              <- Model outputs or summaries (if applicable)
+├── notebooks/           <- Jupyter notebooks with main analysis
+├── references/          <- Data dictionaries, manuals, or supporting info
+├── reports/
+│   └── figures/         <- Visualizations and exported plots
+├── requirements.txt     <- List of project dependencies
+├── setup.py             <- Allows project to be installed as a package
+├── src/
+│   ├── data/            <- Scripts to load or transform data
+│   ├── features/        <- Scripts for feature engineering
+│   ├── models/          <- Modeling or testing scripts
+│   └── visualization/   <- Plotting and chart functions
+└── tox.ini              <- Test automation configuration
+
+## Dependencies
+
+The project uses the following packages:
+
+- Python 3.9+
+- pandas
+- numpy
+- seaborn
+- matplotlib
+- scipy
+- jupyter
+- scikit-learn
+
+Install with:
+
+To set up a virtual environment and install dependencies:
+python3 -m venv venv
+source venv/bin/activate # For Windows: venv\Scripts\activate
+pip install -r requirements.txt
+
+## Running the Notebook
+
+To run the main analysis notebook:
+jupyter notebook notebooks/MC_CrimeAnalysis.ipynb
+
+vbnet
+Copy
+Edit
+
+## Summary of Findings
+
+- Property crimes like vandalism showed significant seasonal variation, peaking in the fall.
+- Violent crimes were more geographically concentrated across zip codes (Gini coefficient = 0.5863).
+- Daily crime counts were statistically higher on weekdays compared to weekends (p = 0.0035, Mann-Whitney U test).
+
 
 <p><small>Project based on the <a target="_blank" href="https://drivendata.github.io/cookiecutter-data-science/">cookiecutter data science project template</a>. #cookiecutterdatascience</small></p>
